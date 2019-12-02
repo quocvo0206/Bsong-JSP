@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//WebContent/admin/addSong.jsp=UTF-8
+encoding//WebContent/admin/index.jsp=UTF-8
+encoding//WebContent/admin/indexSong.jsp=UTF-8
+encoding//WebContent/cat.jsp=UTF-8
+encoding//WebContent/contact.jsp=UTF-8
+encoding//WebContent/detail.jsp=UTF-8
+encoding//WebContent/index.jsp=UTF-8
+encoding//src/controller/AdminIndexContactsController.java=UTF-8
+encoding//src/model/dao/CategoryDao.java=UTF-8
+encoding//src/model/dao/ContactsDao.java=UTF-8
+encoding//src/model/dao/UserDao.java=UTF-8
