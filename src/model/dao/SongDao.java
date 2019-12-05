@@ -14,7 +14,7 @@ import util.DBConnectionUtil;
 public class SongDao {
 	private Connection con;
 	private Statement st;
-
+	private PreparedStatement pmt;
 	private ResultSet rs;
 
 	public ArrayList<Song> getItems() throws SQLException {
@@ -81,4 +81,15 @@ public class SongDao {
 		return ls;
 	}
 	
+	public void deleteSong(int id) {
+		con = DBConnectionUtil.getConnection();
+		String sql = "delete from songs where id = ?";
+		try {
+			pmt = con.prepareStatement(sql);
+			pmt.setInt(1, id);
+			pmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+	}
 }

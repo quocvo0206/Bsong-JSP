@@ -31,7 +31,7 @@
                                     </form><br />
                                 </div>
                             </div>
-
+							<form id="form_id" method="post" action="<%=request.getContextPath()%>/admin/song/delete">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
@@ -58,12 +58,13 @@
                                         </td>
                                         <td class="center">
                                             <a href="" title="" class="btn btn-primary"><i class="fa fa-edit "></i> Sửa</a>
-                                            <a href="" title="" class="btn btn-danger"><i class="fa fa-pencil"></i> Xóa</a>
-                                        </td>
+                                            <button name="id" title="" value="<%=objSong.getId()%>" class="btn btn-danger"><i class="fa fa-pencil"></i> Xóa</button>
+                                         </td>
                                     </tr>
                                     <%}} %>
                                 </tbody>
                             </table>
+                            </form>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="dataTables_info" id="dataTables-example_info" style="margin-top:27px">Hiển thị từ 1 đến 5 của 24 truyện</div>

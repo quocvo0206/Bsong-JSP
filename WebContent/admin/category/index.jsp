@@ -21,7 +21,7 @@
 						<div class="table-responsive">
 							<div class="row">
 								<div class="col-sm-6">
-									<a href="<%=request.getContextPath()%>/admin/category/add" class="btn btn-success btn-md">Thêm</a>		
+									<a href="<%=request.getContextPath()%>/admin/cat/add" class="btn btn-success btn-md">Thêm</a>		
 								</div>
 								<div class="col-sm-6" style="text-align: right;">
 									<form method="post" action="">

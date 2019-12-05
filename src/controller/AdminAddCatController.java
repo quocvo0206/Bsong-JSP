@@ -19,41 +19,51 @@ import util.AuthUtil;
 
 public class AdminAddCatController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AdminAddCatController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+	public AdminAddCatController() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		AuthUtil authUtil = new AuthUtil();
+		if (authUtil.checkLogin(request, response)) {
+			RequestDispatcher rd = request.getRequestDispatcher("/admin/category/add.jsp");
+			rd.forward(request, response);
+		} else {
+			RequestDispatcher rd = request.getRequestDispatcher("/admin/auth/index.jsp");
+			rd.forward(request, response);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		AuthUtil authUtil = new AuthUtil();
 		CategoryDao categoryDao = new CategoryDao();
 		ArrayList<Category> alCategory = new ArrayList<>();
-		String name = request.getParameter("name");		
-		AuthUtil auUtil = new AuthUtil();
-		if(authUtil.checkLogin(request, response)){
+		String name = request.getParameter("name");
+		if (authUtil.checkLogin(request, response)) {
 			categoryDao.addCat(name);
 			alCategory = categoryDao.getItems();
 			request.setAttribute("alCategory", alCategory);
 			RequestDispatcher rd = request.getRequestDispatcher("/admin/category/index.jsp");
 			rd.forward(request, response);
-		}else {
+		} else {
 			RequestDispatcher rd = request.getRequestDispatcher("/admin/auth/index.jsp");
 			rd.forward(request, response);
 		}
-		
+
 	}
 }

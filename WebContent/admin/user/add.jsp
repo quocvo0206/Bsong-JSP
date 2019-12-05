@@ -31,8 +31,8 @@
                                         <label for="name">Fullname</label>
                                         <input type="text" id="name" value="" name="fullname" class="form-control" style="width:500px"/>
                                     </div>
-                                    <input type="submit" name="submit" class="btn btn-success btn-md" value="Them"></input>
-                                    <button type="" name="" class="btn btn-success btn-md">Nhập lại</button>
+                                    <input type="submit" name="submit" class="btn btn-success btn-md" value="Add"></input>
+                                    <button type="reset" class="btn btn-success btn-md">Reset</button>
                                 </form>
                             </div>
                         </div>

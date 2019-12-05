@@ -84,7 +84,6 @@
     <servlet-name>AdminAddCatController</servlet-name>
     <url-pattern>/admin/cat/add</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>AdminDeleteCatController</servlet-name>
     <servlet-class>controller.AdminDeleteCatController</servlet-class>
@@ -93,7 +92,6 @@
     <servlet-name>AdminDeleteCatController</servlet-name>
     <url-pattern>/admin/cat/delete</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>AdminUpdateCatController</servlet-name>
     <servlet-class>controller.AdminUpdateCatController</servlet-class>
@@ -102,8 +100,7 @@
     <servlet-name>AdminUpdateCatController</servlet-name>
     <url-pattern>/admin/cat/update</url-pattern>
   </servlet-mapping>
- 
-   <servlet>
+  <servlet>
     <servlet-name>AdminAddSongController</servlet-name>
     <servlet-class>controller.AdminAddSongController</servlet-class>
   </servlet>
@@ -111,7 +108,25 @@
     <servlet-name>AdminAddSongController</servlet-name>
     <url-pattern>/admin/song/add</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>AdminDeleteSongController</servlet-name>
+    <servlet-class>controller.AdminDeleteSongController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminDeleteSongController</servlet-name>
+    <url-pattern>/admin/song/delete</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>15</session-timeout>
   </session-config>
+  <servlet>
+    <description></description>
+    <display-name>AdminUpdateSongController</display-name>
+    <servlet-name>AdminUpdateSongController</servlet-name>
+    <servlet-class>controller.AdminUpdateCatController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminUpdateSongController</servlet-name>
+    <url-pattern>/AdminUpdateSongController</url-pattern>
+  </servlet-mapping>
 </web-app>
