@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,7 +10,6 @@ import java.util.ArrayList;
 import model.bean.Login;
 import model.bean.Users;
 import util.DBConnectionUtil;
-import java.sql.PreparedStatement;
 
 public class UserDao {
 	private Connection con;
@@ -24,7 +24,6 @@ public class UserDao {
 		try {
 			st = con.createStatement();
 			rs = st.executeQuery(sql);
-			PreparedStatement stmt = con.prepareStatement(sql);
 			while(rs.next()) {
 				Users users = new Users(rs.getString("username"),rs.getString("fullname"), rs.getInt("id"));
 				alUsers.add(users);			
@@ -56,7 +55,6 @@ public class UserDao {
 	public void addUser(String usernam, String password, String fullname) {
 		con = DBConnectionUtil.getConnection();
 		String sql = "INSERT INTO USERS(username,password,fullname) VALUES(?,?,?)";
-		//String sql = String.format("INSERT INTO USERS VALUES(%s,%s,%s)",usernam,password,fullname);
 		try {
 			pmt = con.prepareStatement(sql);
 			pmt.setString(1, usernam);
@@ -96,13 +94,4 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
-	
-/*public static void main(String[] args) {
-		UserDao UserDao = new UserDao();
-		System.out.println(UserDao.getUsersLogin("admin","123")!=null);
-		UserDao.addUser("user999999name", "pass9999word", "full999name");
-		UserDao.deleteUser(15);
-		UserDao.updateUser(8, "quocvv", "tthue", "vovanquoc");
-		System.out.println("Ok");
-	}*/
 }

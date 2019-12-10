@@ -22,18 +22,17 @@ public class SongDao {
 		String sql = "Select s.*,c.name as cname From categories AS c inner join songs AS s on c.id = s.cat_id order by s.id desc";
 		con = DBConnectionUtil.getConnection();
 
-		
-			st = con.createStatement();
-			rs = st.executeQuery(sql);
+		st = con.createStatement();
+		rs = st.executeQuery(sql);
 
-			while (rs.next()) {
-				Song objtem = new Song(rs.getInt("id"), rs.getString("name"), rs.getString("preview_text"),
-						rs.getString("detail_text"), rs.getTimestamp("date_create"), rs.getString("picture"),
-						rs.getInt("counter"), rs.getInt("cat_id"), new Category(rs.getString("cname")));
-				listItem.add(objtem);
+		while (rs.next()) {
+			Song objtem = new Song(rs.getInt("id"), rs.getString("name"), rs.getString("preview_text"),
+					rs.getString("detail_text"), rs.getTimestamp("date_create"), rs.getString("picture"),
+					rs.getInt("counter"), rs.getInt("cat_id"), new Category(rs.getString("cname")));
+			listItem.add(objtem);
 
-			}
-	
+		}
+
 		return listItem;
 	}
 
@@ -58,21 +57,21 @@ public class SongDao {
 		con = DBConnectionUtil.getConnection();
 		st = con.createStatement();
 		rs = st.executeQuery(sql);
-		while(rs.next()) {
+		while (rs.next()) {
 			result = rs.getInt("total");
 		}
 
 		return result;
 	}
-	
+
 	public ArrayList<Song> getPage(int offset) throws SQLException {
 
 		ArrayList<Song> ls = new ArrayList<>();
 		con = DBConnectionUtil.getConnection();
-		String sql = "Select s.*,c.name as cname From categories AS c inner join songs AS s on c.id = s.cat_id order by s.id desc  LIMIT 7 OFFSET " + offset;
+		String sql = "Select s.*,c.name as cname From categories AS c inner join songs AS s on c.id = s.cat_id order by s.id desc  LIMIT 7 OFFSET "+ offset;
 		st = con.createStatement();
 		rs = st.executeQuery(sql);
-		while(rs.next()) {
+		while (rs.next()) {
 			Song objtem = new Song(rs.getInt("id"), rs.getString("name"), rs.getString("preview_text"),
 					rs.getString("detail_text"), rs.getTimestamp("date_create"), rs.getString("picture"),
 					rs.getInt("counter"), rs.getInt("cat_id"), new Category(rs.getString("cname")));
@@ -80,7 +79,7 @@ public class SongDao {
 		}
 		return ls;
 	}
-	
+
 	public void deleteSong(int id) {
 		con = DBConnectionUtil.getConnection();
 		String sql = "delete from songs where id = ?";
@@ -90,6 +89,6 @@ public class SongDao {
 			pmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 }

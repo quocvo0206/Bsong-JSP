@@ -28,7 +28,6 @@ public class ContactsDao {
 				alContacts.add(contacts);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return alContacts;

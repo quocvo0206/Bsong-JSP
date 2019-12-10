@@ -1,4 +1,5 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@page import="model.bean.Category"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ include file="/templates/admin/inc/header.jsp" %>
 <%@ include file="/templates/admin/inc/leftbar.jsp" %>
@@ -21,7 +22,8 @@
                                 <form role="form" method="post"  id="form" action="<%=request.getContextPath()%>/admin/cat/add">
                                     <div class="form-group">
                                         <label for="name">Tên Danh Mục</label>
-                                        <input type="text" id="name" value="" name="name" class="form-control" style="width:500px"/>
+                                        <%Category cat = (Category)request.getAttribute("cat");%>>
+                                        <input type="text" id="name" value="<%=cat.getName()%>" name="name" class="form-control" style="width:500px"/>
                                     </div>
                                     <input type="submit" name="submit" class="btn btn-success btn-md" value="Sửa"></input>
                                     <button type="" name="" class="btn btn-success btn-md">Nhập lại</button>

@@ -28,10 +28,26 @@ public class CategoryDao {
 				listItem.add(objtem);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return listItem;
+	}
+	
+	public Category getCategory(int id){
+		String sql ="Select *from categories WHERE id = "+ id;
+		con = DBConnectionUtil.getConnection();
+		Category objtem;
+		try {
+			st = con.createStatement();
+			rs=st.executeQuery(sql);	
+			while(rs.next()) {
+				objtem = new Category(rs.getInt("id"), rs.getString("name"));
+				return objtem;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public void addCat(String name) {
@@ -70,12 +86,17 @@ public class CategoryDao {
 			e.printStackTrace();
 		}
 	}
-public static void main(String[] args) {
-		CategoryDao co = new CategoryDao();
-		//co.addCat("ThuHoaiK+PhuongTrinh Jolie");
-		//co.deleteCat(14);
-		//System.out.println("K+ThuHoai");
-		
+	// update categories
+	public void updateCat(String name, int id) {
+		con = DBConnectionUtil.getConnection();
+		String sql = "UPDATE categories SET name = ? WHERE id = ?";
+		try {
+			pt = con.prepareStatement(sql);
+			pt.setString(1, name);
+			pt.setInt(2, id);
+			pt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	
 }

@@ -1,3 +1,5 @@
+<%@page import="model.bean.Category"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <div class="searchform">
@@ -13,11 +15,10 @@
   <h2 class="star">Danh mục bài hát</h2>
   <div class="clr"></div>
   <ul class="sb_menu">
-    <li><a href="#">Nhạc trẻ</a></li>
-    <li><a href="#">Nhạc trữ tình</a></li>
-    <li><a href="#">Rock Việt</a></li>
-    <li><a href="#">Nhạc Trịnh</a></li>
-    <li><a href="#">Hip Hop Việt</a></li>
+  <%ArrayList<Category> alCategory =(ArrayList<Category>)session.getAttribute("alCategory");
+  for(Category cat : alCategory){%>
+	<li><a href="#"><%=cat.getName()%></a></li>
+  <%}%>
   </ul>
 </div>
 

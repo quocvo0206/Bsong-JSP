@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>bsong</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file></welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>AdminIndexController</servlet-name>
@@ -108,7 +108,7 @@
     <servlet-name>AdminAddSongController</servlet-name>
     <url-pattern>/admin/song/add</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>AdminDeleteSongController</servlet-name>
     <servlet-class>controller.AdminDeleteSongController</servlet-class>
   </servlet>
@@ -116,17 +116,15 @@
     <servlet-name>AdminDeleteSongController</servlet-name>
     <url-pattern>/admin/song/delete</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>PublicIndexSongController</servlet-name>
+    <servlet-class>controller.PublicIndexSongController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PublicIndexSongController</servlet-name>
+    <url-pattern>/home/song</url-pattern>
+  </servlet-mapping>
   <session-config>
     <session-timeout>15</session-timeout>
   </session-config>
-  <servlet>
-    <description></description>
-    <display-name>AdminUpdateSongController</display-name>
-    <servlet-name>AdminUpdateSongController</servlet-name>
-    <servlet-class>controller.AdminUpdateCatController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AdminUpdateSongController</servlet-name>
-    <url-pattern>/AdminUpdateSongController</url-pattern>
-  </servlet-mapping>
 </web-app>
